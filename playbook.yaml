@@ -1,0 +1,7 @@
+---
+- name: Install Clickhouse
+  hosts: clickhouse-servers
+  become: yes
+  roles:
+    - repository
+    - install
