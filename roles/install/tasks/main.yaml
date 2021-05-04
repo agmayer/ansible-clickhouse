@@ -1,5 +1,5 @@
 ---
-- name: Install clockhouse dependencies
+- name: Install clockhouse server dependencies
   ansible.builtin.apt:
     name:
       - clickhouse-server

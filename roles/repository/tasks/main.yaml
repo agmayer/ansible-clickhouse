@@ -1,5 +1,5 @@
 ---
-- name: Install clockhouse dependencies
+- name: Install clickhouse repo dependencies
   ansible.builtin.apt:
     name:
       - apt-transport-https
@@ -15,8 +15,8 @@
 
 - name: Add deb repository
   ansible.builtin.apt_repository:
-    repo: deb https://repo.clickhouse.tech/deb/stable/ main
-    filename: clickhouse.list
-    mode: "0644"
+    repo: "deb https://repo.clickhouse.tech/deb/stable/ main/"
+    filename: clickhouse
+    mode: '0644'
     state: present
     update_cache: yes
