@@ -1,0 +1,14 @@
+---
+- name: Add Clickhouse rpm-based repository keys
+  ansible.builtin.rpm_key:
+    key: "{{ CONST_clickhouse_url }}/CLICKHOUSE-KEY.GPG"
+    state: present
+  when: ansible_os_family == 'RedHat'
+
+- name: Add repo-based repository
+  ansible.builtin.yum_repository:
+    name: clickhouse
+    baseurl: "{{ CONST_clickhouse_url }}/rpm/{{ CONST_clickhouse_release_line }}/x86_64"
+    mode: '0644'
+    state: present
+  when: ansible_os_family == 'RedHat'

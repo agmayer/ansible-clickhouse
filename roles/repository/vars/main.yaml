@@ -1,0 +1,2 @@
+CONST_clickhouse_url: "https://repo.clickhouse.tech"
+CONST_clickhouse_release_line: "stable"

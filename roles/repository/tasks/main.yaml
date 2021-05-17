@@ -1,22 +1,6 @@
 ---
-- name: Install clickhouse repo dependencies
-  ansible.builtin.apt:
-    name:
-      - apt-transport-https
-      - ca-certificates
-      - dirmngr
-    state: present
-    update_cache: yes
+- include_task: debs.yaml
+  when: ansible_os_family == 'Debian'
 
-- name: Add clickhouse repository keys
-  ansible.builtin.apt_key:
-    keyserver: keyserver.ubuntu.com
-    id: E0C56BD4
-
-- name: Add deb repository
-  ansible.builtin.apt_repository:
-    repo: "deb https://repo.clickhouse.tech/deb/stable/ main/"
-    filename: clickhouse
-    mode: '0644'
-    state: present
-    update_cache: yes
+- include_task: rpms.yaml
+  when: ansible_os_family == 'RedHat'
