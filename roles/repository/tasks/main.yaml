@@ -1,6 +1,6 @@
 ---
-- include_task: debs.yaml
+- include_tasks: debs.yaml
   when: ansible_os_family == 'Debian'
 
-- include_task: rpms.yaml
+- include_tasks: rpms.yaml
   when: ansible_os_family == 'RedHat'
